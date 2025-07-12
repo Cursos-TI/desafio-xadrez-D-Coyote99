@@ -30,5 +30,17 @@ int main() {
         printf("Esquerda\n");
     }
 
+    // Estrutura for e while para o Cavalo
+    printf("\n");
+    printf("Movimento do Cavalo\n");
+    for (int i = 1; i <= 1; i++){
+        int j = 1;
+        while (j <= 2){
+            printf("Baixo\n");
+            j++;
+        }
+        printf("Esquerda\n");
+    }
+
     return 0;
 }
