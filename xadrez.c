@@ -1,45 +1,63 @@
 #include <stdio.h>
 
+// Função recursiva para os movimentos
+void moverDireita(int movimento){
+    if (movimento > 0){
+        printf("Direita\n");
+        moverDireita(movimento - 1);
+    }
+}
+
+void moverEsquerda(int movimento){
+    if (movimento > 0){
+        printf("Esquerda\n");
+        moverEsquerda(movimento - 1);
+    }
+}
+
+void moverCima(int movimento){
+    if (movimento > 0){
+        printf("Diagonal Cima, ");
+        moverCima(movimento - 1);
+    }
+}
+
 int main() {
     // Declarando as variáveis
-    int movTorre = 1, movBispo = 1, movRainha;
+    int movTorre, movBispo = 1, movRainha;
 
-    // Estrutura while para a Torre
+    // Estrutura recursiva para a Torre
     printf("Movimento da torre\n"); // Esse printf esta fora do while para não ser repetido varias vezes
 
-    while (movTorre <= 5){
-        printf("Direita\n");
-        movTorre++;
-    }
+    moverDireita(movTorre = 5);
 
-    // Estrutura do-while para Bispo
+    // Estrutura recursiva e aninhada para Bispo
     printf("\n"); // Espaço entre os movimentos das peças
     printf("Movimento do Bispo\n");
 
-    do {
-        printf("Diagonal Cima, Direita\n");
-        movBispo++;
+    for (int i = 0; i < 5; i++){
+        moverCima(movBispo);
+        printf("Direita\n");
+    }
 
-    } while (movBispo <= 5);
-
-    // Estrutura for para a Rainha
+    // Estrutura recursiva para a Rainha
     printf("\n");
     printf("Movimento da Rainha\n");
 
-    for (movRainha = 8; movRainha >=1; movRainha--){
-        printf("Esquerda\n");
-    }
+    moverEsquerda(movRainha = 8);
 
-    // Estrutura for e while para o Cavalo
+    // Estrutura Loop aninhado para o Cavalo
     printf("\n");
     printf("Movimento do Cavalo\n");
-    for (int i = 1; i <= 1; i++){
-        int j = 1;
-        while (j <= 2){
-            printf("Baixo\n");
-            j++;
+    for (int i = 0; i < 10; i++){
+        if (i < 2){
+            printf("Cima\n");
+            continue;
         }
-        printf("Esquerda\n");
+        if (i == 2){
+            printf("Direita\n");
+            break;
+        }
     }
 
     return 0;
